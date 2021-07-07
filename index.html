@@ -1,0 +1,1017 @@
+<!doctype html> 
+<html>
+<head>
+    <title>02 - Let</title>
+    <style>
+        .green {
+            color: green;
+            font-size: 25px;
+    
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <button id="btn">
+        make me a sanduiche
+    </button> -->
+
+    <ul id="list">
+        <li>Felipe</li>
+        <li>Buhrer</li>
+        <li>Salles</li>
+    </ul>
+
+    <!-- 02 Let-->
+<!-- <script>  
+    var animal = 'cat'
+    console.log(animal); 
+    {
+        let animal = 'dog'
+        console.log(animal);
+    }
+    console.log(animal);
+
+
+</script> -->
+
+<!-- <script>
+    const secretNumber = 28;
+    
+    const will = {
+        name: 'William',
+        age:53
+    };
+
+    // ERROO 
+    // const will = {
+    //     name: 'Bill',
+    //     age:3
+    // };
+
+    // A idéia para fazer uma variavel imutável é:
+    //Para escrever uma, além do const precisa 
+    //usar outro metodo  Object.freeze(obj); EX:
+
+    Object.freeze(will);
+
+    // Object é com LETRA MAIUSCULA
+
+    console.log(will); 
+    
+    will.age = 26;
+
+    console.log(will); 
+
+   
+
+</script> -->
+
+<!-- <script>  // Erro de chamar variável
+        //  Antes mesmo de criar. Ver Erro
+    console.log(cat);
+    const cat = "meow";
+</script> -->
+
+
+
+<!-- <script>
+        //Arrow Funtctions
+    const irland = ['Dublin', 'Galway', 'Greace'];
+
+    const love = irland.map(function(name){
+        return `I love ${name}!`;
+    });
+
+    console.log(love);
+
+    const loveArrow = irland.map((name) => {
+        return `I love ${name}!`;
+    });
+
+    console.log(loveArrow);
+
+    const loveArrowSingle = irland.map(name => {
+        return `I love ${name}!`;
+    });
+
+    console.log(loveArrowSingle);
+
+    const loveOneLine = irland.map(name => `I love ${name}!`);
+
+    console.log(loveOneLine);
+
+    const loveChain = irland
+                            .filter(name => name === 'Dublin')
+                            .map(name => `I Love ${name}!`);
+
+    console.log(loveChain);
+</script> -->
+
+<!-- <script>
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', () => {
+        console.log(this);
+    });
+</script> -->
+
+<!-- <script>
+    //Exemplos para o contexto do THIS
+    const sandwich = {
+        bread: 'white',
+        cheese: 'cheddar', 
+
+        prepare: function() {
+            return `I want a sandwich with ${this.bread} bread and ${this.cheese} cheese!`;
+        },
+
+        // o this da função a seguir é o window. this em relação
+        // a função que está ocorrendo no momento
+        make: function() {
+            window.setTimeout(function(){
+                console.log( this.prepare());
+            }, 500);
+        },
+
+        //Usando o Arrow Function o this se torna relativo
+        //ao contexto do scopo rodando no momento, no que 
+        // cuspido da fórmula anterior no caso
+        make2: function() {
+            window.setTimeout(() => {
+                console.log( this.prepare());
+            }, 500);
+        }
+    };
+    
+    const btn = document.getElementById('btn');
+
+    btn.addEventListener('click', function() { sandwich.make2() });
+
+</script> -->
+
+<!-- <script>
+
+    // Inicio Template Literals
+
+    const ireland = {
+        live: 'Dublin',
+        love : 'galway'
+    };
+
+    
+
+    const text = 'Eu moro em ' + ireland.live + ' e sou apaixonado por ' + ireland.love+'!';
+    
+    const newtext = `Eu moro em ${ireland.live} e sou apaixonado por ${ireland.love}!`;
+    
+    console.log(newtext);
+
+    const fruits = 'banana'
+                    + '\n'
+                    + 'pessego'
+                    + '\n'
+                    + 'mamao';
+
+    const newfrutas = 
+`banana
+limao
+        laranja`;                
+
+    console.log(newfrutas);
+
+
+    // Atenção. É para usar as aspas ao contrátio no template Literal
+
+</script> -->
+
+<!-- <script>
+
+    const article = {
+        title: 'Aprendendo Template Strings',
+        intro: 'Uma breve explicação de como se utilizar template strings do ES6 em seu código hoje!',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, officia, perspiciatis? Architecto, molestias autem. Repellat, laborum deserunt soluta necessitatibus. Tenetur illo, id magnam numquam neque illum temporibus, in qui eos.',
+        tags: ['es6', 'js', 'template-literal']
+    };
+
+    function renderAuthor(name) {
+        return (name) ? name : 'unknown';
+    }
+    
+    const markup = ` 
+        <article>
+            <header>
+                <h1>${article.title}</h1>
+            </header>
+            <section>
+                <p>${article.intro}</p>
+            </section>
+            <footer>
+                <ul>
+                    ${article.tags.map((tag) => `<li>${tag}</li>`).join('')}
+                </ul>
+                <p>Author: ${renderAuthor(article.author)}</p>
+            </footer>
+        </article>
+    `;
+
+    document.body.innerHTML = markup;
+
+</script> -->
+
+<!-- <script>
+    const article = {
+        nome: 'Empreendimento na Praia Brava',
+        resumo: '3 Suítes e 2 quartos monxstro',
+        body: "Beliisimo apartamento 3 suítes, correx ve nego",
+        tags: ['promocao' , 'quiridu' , 'chega-mais']
+   
+    };
+
+    const markup = `
+
+    <article>
+        <header>
+            <h1>${article.nome}</h1>
+        </header>
+        <section>
+            <h2>${article.resumo}</h2>    
+        </section>
+        <section>
+            <ul>
+            
+            ${article.tags.map((tags) => `<li>${tags}</li>`).join('')}    
+           
+                
+            </ul>  
+              
+        </section>
+
+
+    </article>
+    `
+
+    document.body.innerHTML = markup;
+
+</script> -->
+
+<!-- <script> //ACUMULATOR
+
+    const city = 'Dublin';
+    const rua = 'Guinnes';
+    const coisa ='Leprechaum';
+ 
+
+    function green(template, ...values) {
+       // debugger  // veja no debugger como ele corta /separa o template
+                    //literal em partes. 
+        return template.reduce((accumulator, part, i) => {
+            return `
+                ${accumulator}
+                <span class="green">${values[i-1].toUpperCase()}</span>
+                ${part}
+                `
+        });
+    }
+
+    const ireland = green `I live in ${city} and like to ir para a ${rua} e caçar ${coisa}`;
+
+    document.body.innerHTML = ireland;
+
+</script> -->
+
+<!-- <script>
+    
+    let firstname = 'William';
+    let surname = 'jedai';
+    let age = 23;
+
+    // const person = {  //MODO ANTIGO
+    //     firstname : firstname,
+    //     surname: surname,
+    //     age : age
+    // };
+
+    const person = {  //MODO NOVO
+        firstname,
+       surname,
+        age
+    };
+
+    console.log(person);
+
+
+</script> -->
+
+<!-- <script>  //Valores Paddrões
+
+    //MODO ANTIGO
+    // function hello(name, surname) { 
+    //     name = name || 'william';
+    //     surname = surname || 'durval';
+        
+    //     console.log(` hello ${name} ${surname}. How are you`);
+    // }
+
+      function hello(name = 'william', surname = 'Jedi') { 
+     
+        
+        console.log(` hello ${name} ${surname}. How are you`);
+    }
+
+    hello( 'felipe', 'buhrer');
+
+
+</script> -->
+
+<!-- <script>
+    let text = 'Lorem Ipsulum dolor sit ameit';
+
+    console.log(text.startsWith('rem' , 2));
+    console.log(text.endsWith('mmmeit'));
+    console.log(text.includes('Ipsulum')); //CASE SENSITIVE
+
+    console.log('lol'.repeat(18));
+
+</script> -->
+
+<!-- <script>  //Gerando Arrays a partir de Listas
+        //Array.from($var);
+    const text ='William';
+
+    const list = document.querySelectorAll('#list li');
+    const listArray = Array.from(list);
+    console.log(listArray); 
+
+    
+    
+    const names = listArray.map((name) => name.textContent)
+    console.log(names);
+
+</script> -->
+
+<!-- <script> //Cuidado com o nome Array, acaba chamando o método
+   const Arrayof = Array.of(1, 4, 'aheuhaeu', {name: 'paunocu'});
+
+    console.log(Arrayof);
+</script> -->
+
+<!-- <script>  //FIND e FINDINDEX Dentro das Arrays
+const data = [{
+        name : 'William',
+        age : 34,
+        city: 'Dublin'
+},
+{
+        name : 'Jonas',
+        age : 33,
+        city: 'Ponta Grossa'   
+}];
+
+        // const sampleArray = [4 , 3, -1];
+
+        // const underZero = sampleArray.find( x => x < 0);
+
+        // const underZeroIndex = sampleArray.findIndex( x => x < 0);
+
+        // console.log(underZeroIndex);
+
+
+        const will = data.find(person => person.name === 'William');
+        console.log(will);
+
+
+</script> -->
+
+<!-- <script>
+    const arr = new Array(50);
+    arr.fill('PG', 2, 3)
+
+    console.log(arr);
+
+    const newarr = [1,2,3,4,5];
+
+    newarr.fill('PG', 2, 4);
+
+    console.log(newarr);
+</script> -->
+
+<!-- <script>  //Destructoring  const {}
+    var data = {
+        name: 'Willian',
+        surname: 'Justen',
+        age: 25,
+        blog: 'https://willianjusten.com.br',
+        social: {
+            twitter: '@Willian_Justen',
+            facebook: '/willianjusten'
+        }
+    };
+    
+    // const name = data.name;
+    // const surname = data.surname;
+    // const twitter = data.social.twitter;
+    // console.log(name);
+    // console.log(surname);
+    // console.log(twitter);
+    
+    const {name, surname} = data;
+    console.log(name);
+    console.log(surname);
+    
+    const {facebook, twitter} = data.social;
+    console.log(facebook);
+    console.log(twitter);
+
+    const {facebook: fb } = data.social;
+    console.log(fb);
+
+    const { city = 'Dublin'} =data;
+
+    console.log(city);
+  
+</script> -->
+
+<!-- <script> //Destructoring nas Arrays
+    const arr = ['william', 'Jansen', 33, 'Dublin'];
+
+    const [ name, surname, age, city ] = arr;
+
+    console.log(name);
+    console.log(surname);
+    console.log(age);
+    console.log(city);
+
+
+</script> -->
+
+<!-- <script> // Swap de Variáveis usando Destroctoring
+    let a =42;
+    let b = 33;
+
+    console.log("a:", a);
+    console.log("b:", b);
+
+    [a, b] = [b, a];
+
+    console.log("a:", a);
+    console.log("b:", b);
+
+</script> -->
+
+<!-- <script>  //[...] Spread
+    let front = ['react', 'vue', 'anglar'];
+    let back = ['phythom','phitom', 'phutom'];
+
+    // let fullStack = front.concat(back);
+    
+    let fullStack = [...front,'JBL',...back];
+
+    console.log(fullStack);
+
+
+    // console.log(...'will');
+    // console.log([...'will']);
+    // console.log(...front);
+
+</script> -->
+
+<!-- <script>  // Spread Operator
+    function makeaSanduiche(bread, cheese, sauce){
+        console.log(`Your sanduiche with ${bread} bread, ${cheese} chesse and ${sauce} is done!`);
+    
+    }
+
+    const ingridients = ['white', 'cheddar', 'barbecue'];
+
+    makeaSanduiche(...ingridients);
+
+</script> -->
+
+<!-- <script>  //Spread OPPERATOR para  separar argumentos nas Arrays
+    function multiply(mult, ...args) {
+        return args.map(arg => arg * mult);
+       
+
+    }
+
+    console.log(multiply(2, 4, 5, 6, 7,8));
+</script> -->
+
+<!-- <script> //PROMISSES  Um SetTimouOut tbm
+
+    var defer = new Promise((resolve, reject) => {
+
+        setTimeout(()=> {
+
+
+        if(true) {
+            resolve('Hello! It Works!');
+        }
+        else {
+            reject('Error');
+        
+        }
+    }, 2000);
+});
+
+    defer
+        .then((data) => {
+            console.log(data);
+            return 'foo';
+        })
+        .then((data) => console.log(data))
+        .catch((err)=> console.log(err));
+
+
+
+</script> -->
+
+<!-- <script>
+    var post = fetch('https://willianjusten.com.br/search.json');
+
+    // setTimeout(()=> {
+    //     console.log(post);
+    // }, 3000);
+    
+    post
+        .then(data => data.json())
+        .then(data => data.map(post =>{
+            console.log(post.title);
+        }))
+        .catch(err => console.error(err));
+        
+
+
+
+</script> -->
+
+<!-- <script>
+    const currency = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({ currency: 'euro', value: 3.50 });
+        }, 5000);
+    });
+
+    const countries = new Promise((resolve, reject) => {
+        
+        setTimeout(()=> {
+            resolve(['Ireland', 'England', 'Scotland']);
+        }, 800)
+       
+    });
+
+    // Promise
+    //     .all([currency, countries])
+    //     .then(responses => {
+    //         console.log(responses);
+    //     })
+
+    Promise
+        .race([currency, countries])
+        .then(responses => {
+            console.log(responses);
+        })
+
+</script> -->
+
+<!-- <script> // CONSTRUCTOR ... CLASSES  ES5
+    
+    //Classe
+    function Animal(kind, sound) {
+        //constructor
+        this.kind = kind;
+        this.sound = sound;
+    }
+
+    //metodo interno da classe
+    Animal.prototype.hello = function() {
+        console.log(`${this.sound} I'm a ${this.kind}!`);
+    }
+
+    const dog = new Animal('dog', 'auau');
+    const cat = new Animal('cat', 'meow');
+
+    console.log(dog);
+</script> -->
+
+<!-- <script> // CONSTRUCTOR ... CLASSES  ES6 
+    
+    //Classe
+
+//     class Animal {
+//         constructor(kind, sound) {
+//             this.kind = kind;
+//             this.sound = sound;
+//         }
+//         //metodo interno da classe
+//         hello(){
+//             console.log(`${this.sound} I'm a ${this.kind}!`);
+//         }
+//         //Só são acessados em relação a classe. Animal.info()
+//         static info(){
+//             console.log('This is a class to create animals');
+//         }
+
+//         //get não precisa dos (). Não é uma função.
+//         get name() {
+//             console.log(`${this.sound} is my sound!`);
+//         }
+
+//         //apenas Colocar algo dentro do objeto
+
+//         set nickname(nick){
+//             this.nick = nick;
+//         }
+//     }
+
+//     const dog = new Animal('dog', 'auau');
+//     const cat = new Animal('cat', 'meow');
+
+    
+</script> -->
+
+<!-- <script> // CONSTRUCTOR ... CLASSES  ES6 
+        //Extendendo classes para mais argumentos
+    
+    //Classe
+
+    class Animal {
+        constructor(name) {
+            this.name = name;
+            
+        }
+        //metodo interno da classe
+        hello(){
+            console.log(`I 'am ${this.name}!`);
+        }
+    
+    }
+
+    class tiger extends Animal {
+        constructor(name, sound) {
+            super(name);
+            this.sound = sound;
+        }
+
+        bark(){
+            console.log(`${this.sound}au au. I'm a ${this.name}`);
+        }
+    }
+
+    const elephant = new Animal('Dumbo');
+
+    const Tiger = new tiger('jake', 'auau');
+  
+    
+</script> -->
+
+<!-- <script>  // Symbol - Entidade Única a não ser sobreescrevida
+    let foo = Symbol('name');
+    let bar = Symbol('name');
+
+    console.log(foo == bar);
+
+    let obj = {
+        [Symbol('name')]: 'William',
+        [Symbol('age')]: 26,
+        city: 'Dubin'
+
+    };
+
+    // console.log(Object.keys(obj));
+    const symbols = Object.getOwnPropertySymbols(obj);
+    console.log(obj);
+    console.log(symbols);
+
+    const data = symbols.map(sym => obj[sym]);
+
+    console.log(data);
+</script> -->
+
+<!-- <script> // Iteratos e Iterable
+
+var txt ='Irland';
+var it = txt[Symbol.iterator](); // Iteratos
+
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+for (letter of txt ){
+    console.log(letter);
+    if (letter == 'a') break;
+}
+
+</script> -->
+
+<!-- <script> // Generator com Iterator
+    // function genNames() {
+    //     console.log('William');
+    //     console.log('Jonas');
+    //     console.log('Gabriel');
+
+    // }
+
+    function* genNames() {
+        yield 'William',
+        yield 'Jonas',
+        yield'Gabriel';
+
+    }
+    const names = genNames();
+    
+    console.log(names.next().value);
+    console.log(names.next());
+    console.log(names.next());
+    console.log(names.next());
+
+
+</script> -->
+<!-- 
+<script>  // Iterando arquivos em Fluxos diferentes 
+    function ajax(url) {
+        fetch(url)
+                .then(data => data.json())
+                .then(data => dados.next(data));
+    }
+
+    function* ajaxGen(){
+        console.log('Buscando posts...');
+        const post = yield ajax('https://api.github.com/users/willianjusten');
+        console.log(post);
+
+
+        console.log('Buscando github posts...');
+        const github = yield ajax('https://api.github.com/users/zoiodois');
+        console.log(github);
+    }
+
+    const dados = ajaxGen();
+    dados.next();
+    
+
+</script> -->
+<!-- 
+<script>  // Alterando objetos com o Proxy
+    let obj = {
+        name: 'William',
+        age: 26
+    };
+
+    let proxy = new Proxy(obj, {
+        get(target, name){
+            console.log('Alguém está pedindo o nome =D');
+            return target[name];
+        },
+
+        set (target, name, value) {
+            console.log('Alguém está mudando o nome!');
+            target[name] = value.toUpperCase();
+        }
+
+    });
+
+
+
+</script> -->
+
+<!-- <script> // SET Gaurdar valores únicos de 1 tipo
+
+    let mySet = new Set(['wiliam', 'jonas', 'godoy']);
+    mySet.add('joao');
+    mySet.delete('William');
+
+    console.log(mySet.has('William'));
+    
+    mySet.add('William');
+    console.log(mySet.has('William'));
+
+    mySet.delete('William');
+    console.log(mySet.has('William'));
+
+
+    let it = mySet.values();
+    for (name of it) {
+        console.log(name);
+    }
+
+
+</script> -->
+
+<!-- <script> // WAEK Set
+        //Só aceita Objetos
+        //Usado somente para guardar objetos pois não pode ser Iterado
+
+    let obj = {
+        name: 'Willian',
+        age: 32,
+    };
+
+    let obj2 = {
+        name: 'Jonas',
+        age: 22
+    };
+
+    let ws = new WeakSet([obj, obj2]);
+
+</script> -->
+
+<!-- <script> 
+    //MAP  ---
+    //Define Chaves - Valor
+        //Só se não quiser usar o SET. Mesmas funções
+    let m = new Map();
+
+    m.set('William', 26);
+    m.set('Jonas', 22);
+    m.set('Jair', 66);
+
+
+</script> -->
+
+<!-- <script> //WeakMap só aceita Objetos
+
+let obj = {
+        name: 'Willian',
+        age: 32,
+    };
+
+    let obj2 = {
+        name: 'Jonas',
+        age: 22
+    };
+
+    let wm = new WeakMap();
+
+    wm.set(obj, 'Info do William');
+    wm.set(obj2, 'Info do Jonas');
+
+</script> -->
+
+<!-- <script>  // Assync Await
+   
+        async function getposts() {
+            const response = await fetch('https://willianjusten.com.br/search.json');
+            const data = await response.json();
+            console.log(data);
+
+        //     return fetch('https://willianjusten.com.br/search.json')
+        //     .then(data => data.json())
+        //     .then(data => data.map(post=> {
+        //     console.log(post.title);
+        // }));
+        }
+
+        getposts();
+</script> -->
+
+<!-- <script>  //Try Catch
+
+    async function getPosts() { 
+        try {
+            
+            const response = await fetch('https://willianjusten.com.br/search.json');
+            const data = response.json();
+
+            return data.map(post =>{
+                console.log(post.title);
+            });
+        }
+
+        catch(err){
+            console.log('Nooooooo, we got an error!', err);
+        }
+    }  
+    
+    getPosts();
+
+</script> -->
+
+<!-- <script> //Promise   APENAS COM 1 S!
+
+        //Jeito 1 com poucos usuários
+    // async function gestUsers() {
+    //     const william = fetch('https://api.github.com/users/willianjusten').then(r=>r.json());
+    //     const guilouro = fetch('https://api.github.com/users/guilouro').then(r=>r.json());
+
+    //     const promises = await Promise.all([william, guilouro]);
+    //     console.log(promises);
+    // }
+
+        //Jeito 2 com varios usuários
+    async function gestUsers(users) {
+        const promises = users.map( user => fetch(`https://api.github.com/users/${user}`).then(r=>r.json())); 
+   
+
+        const people = await Promise.all(promises);
+        console.log(people.map(p => p.created_at)); // no MAP eu posso voltar só o dado que eu quero.
+    }
+
+    gestUsers(['willianjusten', 'Zoiodois']);
+</script> -->
+
+<!-- <script>
+    //sting.prototype.pasStart/padEnd
+    console.log(''.padStart(5, 'hi'));
+    console.log('abc'.padEnd(18, 'd'));
+</script> -->
+
+<!-- <script> // MATH POW   Exponenciais
+
+    console.log(2**8);
+
+</script> -->
+
+<!-- <script> //Contains
+    //Forma Antiga
+    const arr = [1, 2, 3, 'abilio']
+    // console.log(arr.indexOf(5) > -1 ); 
+
+    //Forma nova
+
+    console.log(arr.includes(5)); 
+    console.log(arr.includes(3));
+    console.log(arr.includes('a')); 
+    console.log(arr.includes('abilio')); 
+    console.log(arr.includes('b'));  
+
+
+</script> -->
+<!-- 
+<script> //Object Entries. Eu que me empolguei.
+    const animals = {
+        camel: 3,
+        llama: 2,
+        alpaca: 5,
+        burro: {
+            pelo: 'branco',
+            sexo: 'macho',
+            idade: 3,
+        }
+    };
+
+    const animalsMap = new Map(Object.entries(animals));
+    const burroValue = animalsMap.get('burro');
+    const burroMap = new Map(Object.entries(burroValue));
+    
+    var it = burroValue[Symbol.iterator]();
+   
+    console.log(it.next());
+    
+    // Iteratos
+
+    // console.log(animalsMap.size);
+    // console.log(animalsMap.has('burro'));
+    // console.log(animalsMap.get('burro'));
+    console.log(burroValue);
+    console.log(burroMap);
+    console.log(Object.values(burroValue));
+    console.log(burroMap.size);
+
+    //console.log(burro.has('macho'));
+    // console.log(burro2.has('macho'));
+    // console.log(burro2.has('sexo'));
+    // // console.log(burro2.key('pelo'));
+
+    // console.log(Object.values(burro2));
+
+
+
+</script> -->
+
+<!-- <script>
+     const animals = {
+        camel: 3,
+        llama: 2,
+        alpaca: 5,
+     }
+
+     console.log(animals);
+     console.log(Object.values(animals).reduce((a, b) => a * b));
+</script> -->
+
+<!-- <script> // virgulas após o ultimo elemento não quebram mais o codigo
+    const arr = [
+        1,
+        2,
+        3,
+        4,
+    ];
+
+    const obj = {
+        name: 'Willian',
+        age: 23,
+        country: 'pirocas',
+    }
+
+    function sum (a, b,) {
+        console.log( a+b );
+    }
+
+    sum(2,4);
+</script> -->
+
+
+</body>
+</html>
